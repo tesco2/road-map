@@ -1,0 +1,15 @@
+Week 2
+Since my exploration of the possible databases to help me with this assignment was not as helpful as i could have 
+hoped i decided to try to go down a different route and try and analyse a google maps image to determine where the 
+roads where and how wide they were. My first approach to this was to try and get satelite images and try and
+determine where roads where, but encounted difficulties in accounting for tunnels and dirt roads and such. I then 
+decided to see if i could get google to do the work for me and see how far i could push the google API in accounting
+for roads. What i managed to do was discover the API that let you save static images of a defined area of the world,
+but with a lot of restricutions and changes you could make to the map. Such as defining its size precisly and removing
+unwanted elements as well as well as changing the colours of other elements.
+
+SO once I had this capability I started on a progam that takes in a street address or landmark and returns a ~1km
+square area with everything but roads blacked out and roads a stark white.
+
+Next week I will work on taking that image i have managed to generate and then parsing it so that my code can count
+the number of white pixels to black pixels, and so work out the total area of road their is in the given area.
