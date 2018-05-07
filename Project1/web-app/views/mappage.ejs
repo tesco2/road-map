@@ -24,25 +24,37 @@
           map: map
         });
 	
+
+
+
 	google.maps.event.addListener(marker, 'dragend', function() {
 	console.log([marker.getPosition().lat(),marker.getPosition().lng()]);
 	var Lat = document.getElementById('Lat');
-	Lat.placeholder = marker.getPosition().lat();
+	Lat.value= marker.getPosition().lat();
 	var Lng = document.getElementById('Lng');
-	Lng.placeholder = marker.getPosition().lng();						
+	Lng.value = marker.getPosition().lng();						
 	});
 	}
+
 
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9wqXmGnendlUBinhWs1FYCmb2qn-XtQ&callback=initMap">
     </script>
+
+    <div class="container">
       <fieldset>
         <form action="/" method="post">
-          <input name="Lat" id="Lat" type="text" class="ghost-input" placeholder="Latitude" required>
-          <input name="Lng" id="Lng" type="text" class="ghost-input" placeholder="Enter a City" required>
-	  <input type="submit" class="ghost-button" value="Get Weather">
+          <input name="lat" id="Lat" type="text" class="ghost-input" placeholder="Latitude">
+	  <input name="lng" id="Lng" type="text" class="ghost-input" placeholder="Longitude">
+          <input type="submit" class="ghost-button" value="Caculate">
+	  <input type="text" id ="red" name="textbox1" value = "<%= red %>" disabled="disabled" />
+	  <input type="text" id ="green" name="textbox2" value = "<%= green %>" disabled="disabled" />
+	  <input type="text" id ="blue" name="textbox3" value = "<%= blue %>" disabled="disabled" />
         </form>
+
+
       </fieldset>
+    </div>
   </body>
 </html>
