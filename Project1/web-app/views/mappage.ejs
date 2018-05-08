@@ -3,13 +3,34 @@
   <head>
     <style>
        #map {
-        height: 400px;
-        width: 60%;
+        height: 600px;
+        width: 100%;
        }
+      .topnav {
+      		overflow: hidden;
+  		background-color: #333;
+	}
+      .topnav a {
+    	 	float: left;
+    		color: #f2f2f2;
+    		text-align: center;
+    		padding: 14px 16px;
+    		text-decoration: none;
+    		font-size: 17px;
+ 	} 
+      .body {
+		background-color:#DCDCDC;
+		margin:0px;
+}
     </style>
   </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
+  <body class="body">
+	<div class="topnav">
+        	<a>Road Area Caculator</a>
+	</div>
+    <table style="width:100%" >
+    <tr>
+	<td style="width:80%">
     <div id="map"></div>
     <script>
       function initMap() {
@@ -41,20 +62,26 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAc9wqXmGnendlUBinhWs1FYCmb2qn-XtQ&callback=initMap">
     </script>
-
-    <div class="container">
-      <fieldset>
+	
+	</td>
+	<td>
+   <div class="container">
+      <fieldset  height="600px">
         <form action="/" method="post">
-          <input name="lat" id="Lat" type="text" class="ghost-input" value=<%=lat %> placeholder="Latitude">
-	  <input name="lng" id="Lng" type="text" class="ghost-input" value= <%=lng %> placeholder="Longitude">
-          <input type="submit" class="ghost-button" value="Caculate">
-	  <input type="text" id ="red" name="textbox1" value = "<%= red %>" disabled="disabled" />
-	  <input type="text" id ="green" name="textbox2" value = "<%= green %>" disabled="disabled" />
-	  <input type="text" id ="blue" name="textbox3" value = "<%= blue %>" disabled="disabled" />
+	  <legend> Settings: </legend>
+          Latitude:     <input name="lat" id="Lat" type="text" class="ghost-input" value=<%=lat %> placeholder="Latitude"><br>
+	  Longitude:    <input name="lng" id="Lng" type="text" class="ghost-input" value= <%=lng %> placeholder="Longitude"><br>
+          <input type="submit" class="ghost-button" value="Caculate"><br><br>
+	  Local Streets:<input type="text" id ="red" name="textbox1" value = "<%= red %>" disabled="disabled" />m<sup>2</sup><br>
+	  Highways:	<input type="text" id ="green" name="textbox2" value = "<%= green %>" disabled="disabled" />m<sup>2</sup><br>
+	  Main Roads:	<input type="text" id ="blue" name="textbox3" value = "<%= blue %>" disabled="disabled" />m<sup>2</sup><br>
         </form>
 
 
       </fieldset>
     </div>
+	</td>
+	</tr>
+	</table>
   </body>
 </html>
