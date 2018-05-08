@@ -8,7 +8,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
-  res.render('mappage',{red: null,green:null,blue:null, lat:-37.82701522389683, lng:144.96238708496094});
+  res.render('mappage',{red: null,green:null,blue:null, lat:-37.82701522389683, lng:144.96238708496094,total:null});
 })
 
 app.post('/',function (req,res){
@@ -18,8 +18,9 @@ app.post('/',function (req,res){
 	pythonProcess.stdout.on('data',function (data){
 		var pythondata = data.toString();
 		var RGB = pythondata.split("\n");
-		console.log(RGB[0]);
-		res.render('mappage',{red: RGB[0], green:RGB[1],blue:RGB[2], lat:Latitude, lng:Longitude});
+		var total = parseInt(RGB[0])+parseInt(RGB[1])+parseInt(RGB[2])
+		console.log(total);
+		res.render('mappage',{red: RGB[2], green:RGB[0],blue:RGB[1], lat:Latitude, lng:Longitude, total:total});
 	});
 
 })
