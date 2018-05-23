@@ -1,6 +1,7 @@
 import requests
 from PIL import Image
 import sys
+import time
 
 
 def Get_Map_Image(Location):
@@ -68,10 +69,18 @@ def Count_Pixels(image):
     print(str(round(1000000*(R_count/Map_Size))))
 
 
+def Caculate_Area():
+    x = time.time()
+    lat = -37.8066061867195
+    lng = 144.954833984375
+    centre = (str(lat)+","+str(lng))
 
-lat = -37.806606186719556
-lng = 144.954833984375
-centre = (str(lat)+","+str(lng))
+    Get_Map_Image(centre)
+    Request_Time = time.time()
+    Count_Pixels("static.png")
+    Count_Time = time.time()
+    y=time.time()
+    duration = y-x
+    print(Request_Time-x)
 
-Get_Map_Image(centre)
-Count_Pixels("static.png")
+Caculate_Area()

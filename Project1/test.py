@@ -69,9 +69,9 @@ def Count_Pixels(image):
     sys.stdout.flush()
 
 
-
 lat = sys.argv[1]
 lng = sys.argv[2]
+
 centre = (str(lat)+","+str(lng))
 
 Get_Map_Image(centre)
